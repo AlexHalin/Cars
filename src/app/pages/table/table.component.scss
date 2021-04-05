@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin: .5rem;
+
+  button {
+    margin-right: .5rem;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
+h1 {
+  margin: 0 .5rem .5rem;
+}
+
+table {
+  width: 100%;
+}
+

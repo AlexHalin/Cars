@@ -17,7 +17,7 @@ h2 {
 .form-control {
   margin: 1rem .5rem 0;
   .mat-form-field {
-    width: 120px;
+    width: 140px;
   }
   .mat-form-field-appearance-outline .mat-form-field-wrapper {
     margin: 0 0 .25em;
@@ -45,20 +45,18 @@ h2 {
 
 }
 
-.form-cars {
-
-}
-
 .form-cars-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 
   .btn-remove {
     background-color: var(--main-color);
     color: var(--btn-text-color-enable);
     height: 3.7rem;
     margin-bottom: .5rem;
+    margin-top: -1rem;
   }
 }
 
@@ -76,7 +74,7 @@ h2 {
 
 }
 
-@media (max-width: 762px) {
+@media (max-width: 705px) {
   .aCars {
     border-top: 1px solid var(--main-color);
     &:last-child {

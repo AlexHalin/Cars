@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {OwnerEntity} from '../../service/interfaces';
+import {CarsService} from '../../service/cars.service';
 
 @Component({
   selector: 'app-add-user',
@@ -10,18 +12,18 @@ import {Router} from '@angular/router';
 export class AddUserComponent implements OnInit {
 
   form: FormGroup;
-  submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
+    private carsService: CarsService,
     private router: Router
   ) {
   }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      aLastName: [null, [Validators.required]],
       aFirstName: [null, [Validators.required]],
+      aLastName: [null, [Validators.required]],
       aMiddleName: [null, [Validators.required]],
       aCars: this.formBuilder.array([])
     });
@@ -53,9 +55,16 @@ export class AddUserComponent implements OnInit {
       return;
     }
 
-    this.submitted = true;
-    console.log(this.form.value);
-    this.submitted = false;
-  }
+    const owner: OwnerEntity = {
+      aFirstName: this.form.value.aFirstName,
+      aLastName: this.form.value.aLastName,
+      aMiddleName: this.form.value.aMiddleName,
+      aCars: this.form.value.aCars,
+    }
 
+    this.carsService.createOwner(owner).subscribe(() => {
+      this.form.reset();
+      this.router.navigate(['/']);
+    })
+  }
 }
