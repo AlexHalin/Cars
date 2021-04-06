@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {CarEntity, ICarOwnersService, OwnerEntity} from './interfaces';
+import {ICarOwnersService, OwnerEntity} from './interfaces';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 

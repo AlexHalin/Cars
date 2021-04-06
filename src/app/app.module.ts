@@ -10,6 +10,7 @@ import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import {AddOwnerComponent} from './pages/add-owner/add-owner.component';
 import { TableComponent } from './pages/table/table.component';
+import {EditOwnerComponent} from './pages/edit-owner/edit-owner.component';
 // Material
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,11 +20,13 @@ import {MemoryDbService} from './service/memoryDbService';
 import {MatSelectModule} from '@angular/material/select';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AddOwnerComponent,
-    TableComponent
+    TableComponent,
+    EditOwnerComponent
   ],
   imports: [
     BrowserModule,

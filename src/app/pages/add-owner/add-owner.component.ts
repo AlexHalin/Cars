@@ -29,15 +29,6 @@ export class AddOwnerComponent implements OnInit {
       aMiddleName: [null, [Validators.required]],
       aCars: this.formBuilder.array([])
     });
-
-    const ownerId = this.activatedRoute.snapshot.paramMap.get('id');
-    if (ownerId) {
-
-      this.pacthOwnerForm(ownerId);
-    }
-
-    console.log(ownerId);
-
   }
 
   get cars(): FormArray {
@@ -59,13 +50,6 @@ export class AddOwnerComponent implements OnInit {
 
   removeCar(i: number) {
     this.cars.removeAt(i);
-  }
-
-  private pacthOwnerForm(id) {
-    this.carsService.getOwnerById(id).subscribe(res => {
-      console.log(res);
-      this.form.patchValue(res)
-    })
   }
 
   public submit(): void {

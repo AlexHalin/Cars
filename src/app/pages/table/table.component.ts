@@ -28,19 +28,18 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.getOwners();
   }
 
-  showForm(event) {
-    console.log('this will be routing form', event);
+  editForm(owner) {
+    this.router.navigate([`/edit-owner/${owner.id}`]);
   }
 
   getOwners() {
     this.carsSub = this.carsService.getOwners().subscribe((owners: OwnerEntity[]) => {
       this.owners = owners;
       this.dataSource = new MatTableDataSource(this.owners);
-      console.log(this.owners);
+      console.log(this.owners); // todo delete
     });
   }
 }
