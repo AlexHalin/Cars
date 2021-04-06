@@ -22,7 +22,7 @@ export class CarsService implements ICarOwnersService{
   }
 
   editOwner(aOwner: OwnerEntity): Observable<OwnerEntity> {
-    return this.http.patch<OwnerEntity>(`/api/owners/${aId}`);
+    // return this.http.patch<OwnerEntity>(`/api/owners/${aId}`);
   }
 
   getOwnerById(aId: number): Observable<OwnerEntity> {

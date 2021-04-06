@@ -6,10 +6,10 @@ import {CarsService} from '../../service/cars.service';
 
 @Component({
   selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  templateUrl: './add-owner.component.html',
+  styleUrls: ['./add-owner.component.scss']
 })
-export class AddUserComponent implements OnInit {
+export class AddOwnerComponent implements OnInit {
 
   form: FormGroup;
 
