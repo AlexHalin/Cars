@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AddUserComponent} from './pages/add-user/add-user.component';
+import {AddOwnerComponent} from './pages/add-owner/add-owner.component';
+
 import {TableComponent} from './pages/table/table.component';
 
 const routes: Routes = [
   {path: '', component: TableComponent},
-  {path: 'add-user', component: AddUserComponent}
+  {path: 'add-owner', component: AddOwnerComponent}
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 // Components
 import { AppComponent } from './app.component';
-import { AddUserComponent } from './pages/add-user/add-user.component';
+import {AddOwnerComponent} from './pages/add-owner/add-owner.component';
 import { TableComponent } from './pages/table/table.component';
 // Material
 import {MatButtonModule} from '@angular/material/button';
@@ -18,10 +18,11 @@ import {MatTableModule} from '@angular/material/table';
 import {MemoryDbService} from './service/memoryDbService';
 import {MatSelectModule} from '@angular/material/select';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    AddUserComponent,
+    AddOwnerComponent,
     TableComponent
   ],
   imports: [
