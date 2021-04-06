@@ -11,30 +11,26 @@ export class CarsService implements ICarOwnersService{
 
   constructor(private http: HttpClient) { }
 
-  createOwner(aOwner: OwnerEntity): Observable<OwnerEntity> {
-    return this.http.post(`/api/owners`, {...aOwner, id: Date.now()})
+  createOwner(ownerEntity): Observable<OwnerEntity> {
+    return this.http.post<OwnerEntity>(`/api/owners`, {...ownerEntity, id: Date.now()})
       .pipe(map((resp) => {
-        console.log(resp);
-        return {
-          ...aOwner,
-        }
-
-      }))
+        return resp;
+      }));
   }
 
   deleteOwner(aOwnerId: number): void {
   }
 
   editOwner(aOwner: OwnerEntity): Observable<OwnerEntity> {
-    return undefined;
+    return this.http.patch<OwnerEntity>(`/api/owners/${aId}`);
   }
 
   getOwnerById(aId: number): Observable<OwnerEntity> {
-    return undefined;
+    return this.http.get<OwnerEntity>(`/api/owners/${aId}`);
   }
 
   getOwners(): Observable<OwnerEntity[]> {
-    return this.http.get(`/api/owners`)
+    return this.http.get<OwnerEntity[]>(`/api/owners`);
   }
 }
 

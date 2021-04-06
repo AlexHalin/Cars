@@ -20,13 +20,12 @@ export class MemoryDbService implements InMemoryDbService {
               aModel: 'X',
               aYear: 2021,
             }
-          ]
+          ],
+          idd: 1
         }
       ]
     ;
-    let asd = (a, b) => {
-      console.log(a, b);
-    }
-    return {owners, asd};
+
+    return {owners};
   }
 }

@@ -20,12 +20,7 @@ export interface ICarOwnersService {
 
   getOwnerById(aId: number): Observable<OwnerEntity>;
 
-  createOwner(
-    aLastName: string,
-    aFirstName: string,
-    aMiddleName: string,
-    aCars: CarEntity[]
-  ): Observable<OwnerEntity>;
+  createOwner(ownerEntity: OwnerEntity): Observable<OwnerEntity>;
 
   editOwner(aOwner: OwnerEntity): Observable<OwnerEntity>;
 

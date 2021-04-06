@@ -3,6 +3,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Subscription} from 'rxjs';
 import {CarsService} from '../../service/cars.service';
 import {OwnerEntity} from '../../service/interfaces';
+import {Router} from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -41,7 +42,8 @@ export class TableComponent implements OnInit {
   }
 
   constructor(
-    private carsService: CarsService
+    private carsService: CarsService,
+    private router: Router
   ) {
   }
 

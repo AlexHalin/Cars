@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {OwnerEntity} from '../../service/interfaces';
 import {CarsService} from '../../service/cars.service';
 
@@ -16,7 +16,9 @@ export class AddUserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private carsService: CarsService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+
   ) {
   }
 
@@ -27,6 +29,15 @@ export class AddUserComponent implements OnInit {
       aMiddleName: [null, [Validators.required]],
       aCars: this.formBuilder.array([])
     });
+
+    const ownerId = this.activatedRoute.snapshot.paramMap.get('id');
+    if (ownerId) {
+
+      this.pacthOwnerForm(ownerId);
+    }
+
+    console.log(ownerId);
+
   }
 
   get cars(): FormArray {
@@ -50,7 +61,14 @@ export class AddUserComponent implements OnInit {
     this.cars.removeAt(i);
   }
 
-  submit() {
+  private pacthOwnerForm(id) {
+    this.carsService.getOwnerById(id).subscribe(res => {
+      console.log(res);
+      this.form.patchValue(res)
+    })
+  }
+
+  public submit(): void {
     if (this.form.invalid) {
       return;
     }
