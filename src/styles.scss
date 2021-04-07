@@ -22,9 +22,13 @@ body {
 
 h2 {
   margin: 1.5rem;
+  text-align: center;
 }
 
 .form {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
@@ -59,25 +63,26 @@ h2 {
       height: 2.5rem;
     }
   }
-
-
 }
 
 .form-cars-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-
-  .btn-remove {
-    background-color: var(--main-color);
-    color: var(--btn-text-color-enable);
-    height: 3.7rem;
-    margin-bottom: .5rem;
-    margin-top: -1rem;
-  }
 }
 
+.btn-remove {
+  background-color: var(--main-color);
+  color: var(--btn-text-color-enable);
+  height: 3.7rem;
+  margin-bottom: .5rem;
+  margin-top: -1rem;
+}
+
+.btn-delelte {
+  background-color: var(--error-color);
+
+}
 
 .form-btn {
   width: 100%;
@@ -87,9 +92,9 @@ h2 {
 
 @media (max-width: 920px) {
   .form {
+    width: 100%;
     flex-direction: column;
   }
-
 }
 
 @media (max-width: 705px) {
@@ -97,15 +102,17 @@ h2 {
     border-top: 1px solid var(--main-color);
     &:last-child {
       border-bottom: 1px solid var(--main-color);
-
     }
   }
 }
 
 
 @media (max-width: 630px) {
+  .form {
+    height: auto;
+  }
   h2 {
-    margin: 1rem 1rem 0;
+    margin: 1rem;
   }
   .form-section-person {
     flex-direction: column;

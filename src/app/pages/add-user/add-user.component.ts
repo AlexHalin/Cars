@@ -58,7 +58,7 @@ export class AddUserComponent implements OnInit {
 
   newCar(): FormGroup {
     return this.formBuilder.group({
-      aNumber: [null, [Validators.required]],
+      aNumber: [null, [Validators.required, Validators.pattern('^[A-Z]{2}[0-9]{4}[A-Z]{2}$')]],
       aBrand: [null, [Validators.required]],
       aModel: [null, [Validators.required]],
       aYear: [null, [Validators.required]],
@@ -81,7 +81,7 @@ export class AddUserComponent implements OnInit {
       for (const car of res.aCars) {
         this.cars.push(
           this.formBuilder.group({
-            aNumber: [car.aNumber, [Validators.required]],
+            aNumber: [car.aNumber, [Validators.required, Validators.pattern('^[A-Z]{2}[0-9]{4}[A-Z]{2}$')]],
             aBrand: [car.aBrand, [Validators.required]],
             aModel: [car.aModel, [Validators.required]],
             aYear: [car.aYear, [Validators.required]],
