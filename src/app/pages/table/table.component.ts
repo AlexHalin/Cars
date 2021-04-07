@@ -3,7 +3,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Subscription} from 'rxjs';
 import {CarsService} from '../../service/cars.service';
 import {OwnerEntity} from '../../service/interfaces';
-import {Router} from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -28,18 +28,18 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.getOwners();
   }
 
-  editForm(owner) {
-    this.router.navigate([`/edit-owner/${owner.id}`]);
+  showForm(owner) {
+    this.router.navigate([`/edit/${owner.id}`]);
   }
 
   getOwners() {
     this.carsSub = this.carsService.getOwners().subscribe((owners: OwnerEntity[]) => {
       this.owners = owners;
       this.dataSource = new MatTableDataSource(this.owners);
-      console.log(this.owners); // todo delete
     });
   }
 }

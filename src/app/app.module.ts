@@ -8,9 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 // Components
 import { AppComponent } from './app.component';
-import {AddOwnerComponent} from './pages/add-owner/add-owner.component';
+import { AddUserComponent } from './pages/add-user/add-user.component';
 import { TableComponent } from './pages/table/table.component';
-import {EditOwnerComponent} from './pages/edit-owner/edit-owner.component';
 // Material
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,14 +18,11 @@ import {MatTableModule} from '@angular/material/table';
 import {MemoryDbService} from './service/memoryDbService';
 import {MatSelectModule} from '@angular/material/select';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
-    AddOwnerComponent,
-    TableComponent,
-    EditOwnerComponent
+    AddUserComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

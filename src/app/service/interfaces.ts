@@ -1,7 +1,7 @@
 import {Observable} from 'rxjs';
 
 export interface OwnerEntity {
-  id?: string;
+  id?: number;
   aLastName: string;
   aFirstName: string;
   aMiddleName: string;
@@ -12,7 +12,7 @@ export interface CarEntity {
   aNumber: string;
   aBrand: string;
   aModel: string;
-  aYear: number;
+  aYear: string;
 }
 
 export interface ICarOwnersService {
