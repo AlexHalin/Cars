@@ -1,0 +1,121 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <section class="form-section-person">
+    <h2>Владелец</h2>
+    <div class="form-control">
+      <mat-form-field appearance="outline">
+        <mat-label>Фамилия</mat-label>
+        <input matInput formControlName="aLastName">
+        <mat-error *ngIf="form.get('aLastName').invalid && form.get('aLastName').touched">
+          <mat-hint *ngIf="form.get('aLastName').errors.required">Введите фамилию</mat-hint>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field appearance="outline">
+        <mat-label>Имя</mat-label>
+        <input matInput formControlName="aFirstName">
+        <mat-error *ngIf="form.get('aFirstName').invalid && form.get('aFirstName').touched">
+          <mat-hint *ngIf="form.get('aFirstName').errors.required">Введите имя</mat-hint>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field appearance="outline">
+        <mat-label>Отчество</mat-label>
+        <input matInput formControlName="aMiddleName">
+        <mat-error *ngIf="form.get('aMiddleName').invalid && form.get('aMiddleName').touched">
+          <mat-hint *ngIf="form.get('aMiddleName').errors.required">Введите отчество</mat-hint>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <button class="btn-remove" type="button" mat-flat-button (click)="remove()">
+      <span class="material-icons">delete</span>
+    </button>
+  </section>
+
+  <section class="form-section">
+    <div class="form-title">
+      <div>
+        <h2>Автомобили</h2>
+      </div>
+
+      <div>
+        <button
+          mat-flat-button
+          type="submit"
+          class="btn"
+          [disabled]="form.invalid"
+        >
+          <span class="material-icons">save</span>Сохранить
+        </button>
+
+        <button
+          mat-flat-button
+          class="btn"
+          type="button"
+          (click)="update()"
+          [disabled]="form.invalid"
+        >
+          <span class="material-icons">save</span>Обновить
+        </button>
+
+        <button mat-flat-button (click)="addCar()">
+          <span class="material-icons">add</span> Добавить
+        </button>
+
+        <button mat-flat-button [routerLink]="['/']">
+          <span class="material-icons">arrow_back</span> Назад
+        </button>
+      </div>
+    </div>
+
+    <div class="aCars" formArrayName="aCars" *ngFor="let cars of cars.controls; let i = index">
+      <div class="form-cars-wrapper" [formGroupName]="i">
+        <div class="form-control">
+          <mat-form-field appearance="outline">
+            <mat-label>Номер</mat-label>
+            <input matInput formControlName="aNumber">
+            <mat-error *ngIf="cars.get('aNumber').invalid && cars.get('aNumber').touched">
+              <mat-hint *ngIf="cars.get('aNumber').errors.required">Введите номер</mat-hint>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field appearance="outline">
+            <mat-label>Марка</mat-label>
+            <input matInput formControlName="aBrand">
+            <mat-error *ngIf="cars.get('aBrand').invalid && cars.get('aBrand').touched">
+              <mat-hint *ngIf="cars.get('aBrand').errors.required">Введите марку</mat-hint>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field appearance="outline">
+            <mat-label>Модель</mat-label>
+            <input matInput formControlName="aModel">
+            <mat-error *ngIf="cars.get('aModel').invalid && cars.get('aModel').touched">
+              <mat-hint *ngIf="cars.get('aModel').errors.required">Введите модель</mat-hint>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <mat-form-field appearance="fill">
+            <mat-label>Год</mat-label>
+            <mat-select formControlName="aYear">
+              <mat-option value="{{year}}" *ngFor="let year of years">{{year}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-control">
+          <button class="btn-remove" mat-flat-button (click)="removeCar(i)">
+            <span class="material-icons">delete</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+
+
